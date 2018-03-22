@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Book List</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+</head>
+<body>
+
+	<div style="width: 100%;">
+		<div class="topLine">
+			<div style="float: left;">
+				<img src="images/todo.png" />
+			</div>
+			<div style="float: left;" class="headline">Books</div>
+			<div style="float: right;">
+				<a href="{{ url }}">{{ url_linktext }}</a> {{user.nickname}}
+			</div>
+		</div>
+	</div>
+
+	<div style="clear: both;" />
+
+	<hr />
+
+	<div class="headline">Find a new Book?</div>
+
+{% if user %}
+
+	<form action="/list" method="post">
+		<table>
+			<tr>
+				<td><label for="authorName">Author Name</label></td>
+				<td><input type="text" name="authorName"
+					id="authorName" size="80" /></td>
+			</tr>
+			<tr>
+				<td><label for="title">Title</label></td>
+				<td><input type="title" name="title" id="title" /></td>
+			</tr>
+			<tr>
+				<td valign="top"><label for="longDescription">Description</label></td>
+				<td><textarea rows="4" cols="80" name="longDescription"
+						id="longDescription"></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="isbn">ISBN Number</label></td>
+				<td><input type="text" name="isbn" id="isbn" size="80" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><input type="submit"
+					value="Search" /></td>
+			</tr>
+		</table>
+	</form>
+
+{% else %} 
+
+Login with your Google Account to find and review books.
+
+{% endif%}
+
+
+</body>
+</html>

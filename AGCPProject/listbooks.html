@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Book List</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+</head>
+<body>
+
+	<div style="width: 100%;">
+		<div class="topLine">
+			<div style="float: left;">
+				<img src="images/todo.png" />
+			</div>
+			<div style="float: left;" class="headline">Books</div>
+			<div style="float: right;">
+				<a href="{{ url }}">{{ url_linktext }}</a> {{user.nickname}}
+			</div>
+		</div>
+	</div>
+
+	<div style="clear: both;" />
+
+	<hr />
+
+	<div class="headline">Here's your books</div>
+
+{% if books %}
+	<h1>We found {{numberofbooks}} books</h1>
+	<table>
+	<th>Title</th><th>Book ID</th>
+	{% for book in books.items %}	
+		<h3></h3>
+		<tr>
+			<td>{{book.volumeInfo.title}}</td><td>{{book.id}}</td>
+		</tr>	
+	{% endfor %}
+			
+	</table>
+{% else %} 
+
+	<h1>There ain't no freak in books</h1>
+
+{% endif%}
+
+
+</body>
+</html>

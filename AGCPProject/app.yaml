@@ -1,0 +1,19 @@
+# Notice: This template has only been tested 
+# under Python27 + GAE standard environment
+application: empyrean-cursor-190819
+version: 3
+runtime: python27
+# threadsafe is required but can be either true or 
+# false. For some package, it should be true e.g. Flask
+threadsafe: false
+api_version: 1
+
+handlers:
+- url: /css
+  static_dir: css
+
+- url: /images
+  static_dir: images
+  
+- url: /.*
+  script: booklist.py
